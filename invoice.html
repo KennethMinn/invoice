@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.css">
+</head>
+<body class="p-4">
+
+    <div id="app">
+        <div class="continer">
+          <div class="d-flex justify-content-between">
+            <h1 class="me-2">invoice app</h1>
+            <button class="btn btn-outline-dark" onclick="print()">
+              <i class="bi bi-printer pe-none"></i>print
+            </button>
+          </div>
+  
+          <form id="form" class=" d-print-none">
+            <div class="row border border-1 mt-5 p-4">
+              <div class="col">
+                <label for="" class="form-label">services</label>
+                <span class="badge bg-black rounded-pill" id="addServiceOpenBtn"
+                  ><i class="bi-plus pe-none"></i>Add service
+                </span>
+  
+                <select name="" class="form-select" id="select"></select>
+              </div>
+              <div class="col">
+                <label for="" class="form-label">quantity</label>
+                <input type="number" id="qty" class="form-control" required />
+              </div>
+              <div class="col">
+                <button class="btn btn-dark h-100 w-100">Submit</button>
+              </div>
+            </div>
+          </form>
+  
+          <table class="table table-bordered mt-3">
+            <thead>
+              <tr>
+                <th class="w30">Service</th>
+                <th class="w30">Description</th>
+                <th class="text-end">Qty</th>
+                <th class="text-end">Price</th>
+                <th class="text-end">Total</th>
+              </tr>
+            </thead>
+            <tbody id="tbody">
+              <!-- <tr>
+                      <th>Service</th>
+                      <th>Description</th>
+                      <th>Qty</th>
+                      <th>Total</th>
+                  </tr> -->
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="4" class="text-end">sub-total</td>
+                <td class="text-end">$ <span id="subTotal"></span></td>
+              </tr>
+              <tr>
+                <td colspan="4" class="text-end">tax</td>
+                <td class="text-end">$ <span id="tax"></span></td>
+              </tr>
+              <tr>
+                <td colspan="4" class="text-end">total</td>
+                <td class="text-end">$ <span id="total"></span></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+  
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">
+                add new service
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form action="" id="addServiceForm">
+                <div class="my-2">
+                  <label for="" class="form-label">Service Title</label>
+                  <input type="text" name="serviceTitle" class="form-control" />
+                </div>
+                <div class=" my-2">
+                  <label for="" class="form-label">Description</label>
+                  <input type="text" name="description" class="form-control" />
+                </div>
+                <div class="my-2">
+                  <label for="" class="form-label">Price</label>
+                  <input
+                    type="number"
+                    name="servicePrice"
+                    class="form-control"
+                    required
+                  />
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                id="addServiceCloseBtn"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button form="addServiceForm" class="btn btn-primary">
+                Save changes
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/invoice.js"></script>
+</body>
+</html>
